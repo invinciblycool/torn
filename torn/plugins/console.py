@@ -20,9 +20,9 @@ def runHandler():
         if 'app.py' in os.listdir('.') and 'Config' in os.listdir('.'):
             call(["python", "app.py"])
         else:
-            raise Exception
-    except Exception as e:
-        print('Not a torn app', e)
+            raise FileNotFoundError
+    except FileNotFoundError:
+        print('Not a torn app')
 
 def newHandler(name=None):
     name = name or "app"
